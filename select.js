@@ -36,15 +36,29 @@ const {Blog, User} = require('./model')
   // )
 
   //分页查询
-  const blogPageList = await Blog.findAll({
-    limit: 2, //强制本次查询 2条
-    offset: 2, //跳过多少条
-    order: [
-      ['id', 'desc']
-    ]
-  }) 
-console.log(
-    'blogPageList',
-    blogPageList.map(blog => blog.dataValues)
-  )
+  // const blogPageList = await Blog.findAll({
+  //   limit: 2, //强制本次查询 2条
+  //   offset: 2, //跳过多少条
+  //   order: [
+  //     ['id', 'desc']
+  //   ]
+  // }) 
+  // console.log(
+  //   'blogPageList',
+  //   blogPageList.map(blog => blog.dataValues)
+  // )
+
+  //查询数据的总数
+  // const blogSumCount = await Blog.findAndCountAll({
+  //   limit: 2, //限制本次查询2条
+  //   offset: 0, //跳过多少条
+  //   order: [
+  //     ['id', 'desc']
+  //   ]
+  // })
+  // console.log(
+  //   'blogSumCount',
+  //   blogSumCount.count,
+  //   blogSumCount.rows.map(blog => blog.dataValues)
+  // )
 })()
