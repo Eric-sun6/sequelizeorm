@@ -19,4 +19,32 @@ const {Blog, User} = require('./model')
   //   }
   // })
   // console.log('zhangsanName', zhangsanName.dataValues)
+
+  //查找一个列表
+  // const zhangsanBlogList = await Blog.findAll({
+  //   where:{
+  //     userId: 1
+  //   },
+  //   order: [
+  //     ['id', 'desc']
+  //   ]
+
+  // })
+  // console.log(
+  //   'zhangsanBlogList',
+  //   zhangsanBlogList.map(blog => blog.dataValues)
+  // )
+
+  //分页查询
+  const blogPageList = await Blog.findAll({
+    limit: 2, //强制本次查询 2条
+    offset: 2, //跳过多少条
+    order: [
+      ['id', 'desc']
+    ]
+  }) 
+console.log(
+    'blogPageList',
+    blogPageList.map(blog => blog.dataValues)
+  )
 })()
