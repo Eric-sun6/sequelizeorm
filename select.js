@@ -61,4 +61,33 @@ const {Blog, User} = require('./model')
   //   blogSumCount.count,
   //   blogSumCount.rows.map(blog => blog.dataValues)
   // )
+
+  //链表查询1
+  const blogListWithUser = await Blog.findAndCountAll({
+    order: [
+      ['id', 'desc']
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['userName', 'nickName'],
+        where: {
+          userName: 'zhangsan'
+        }
+      }
+    ]
+  })
+  console.log(
+    'blogListWithUser',
+    blogListWithUser.count,
+    blogListWithUser.rows.map(blog =>
+      // blog.dataValues
+      {
+        const blogVal = blog.dataValues
+        const user = blogVal.user.dataValues
+        return user
+      }
+    )
+  )
+
 })()
