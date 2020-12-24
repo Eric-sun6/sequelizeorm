@@ -12,3 +12,4 @@ const {Blog, User} = require('./model')
 
   console.log('updateRes', updateRes)
 })()
+})()
